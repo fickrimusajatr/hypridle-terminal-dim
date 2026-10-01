@@ -18,6 +18,13 @@ Non-terminal windows are left alone.
 ```bash
 # 1. Copy scripts
 mkdir -p ~/.local/bin
+## References
+These projects / docs informed the design of `hypridle-terminal-dim`:
+**hyprwm/hypridle** - offical idle daemon for Hyprland; provides `on-timeout` / `on-resume`,
+events that this project hooks into. https://github.com/hyprwm/hypridle
+**Hyprland Wiki** - docs on Lua IPC (`hyprctl eval`) and per-window opacity via `hl.dsp.window.set_prop` . https://wiki.hypr.land/
+*donovanglover/hyprdim** - exiting dim tool that inspired the "window can be dimmed" idea, though this project dims based on idle *time* rather than focus *switches*. https://github.com/donovanglover/hyprdim
+**ErikReider/SwayOSD** - on-screen display client used for "Terminal idle" / "Terminal active" popup. https://github.com/ErikReider/swayosd 
 cp scripts/window-idle-dim-terminal.sh ~/.local/bin/
 cp scripts/window-idle-restore-terminal.sh ~/.local/bin/
 chmod +x ~/.local/bin/window-idle-*-terminal.sh
