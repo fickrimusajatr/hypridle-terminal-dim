@@ -5,6 +5,6 @@
 # Dim terminal after 5 seconds of idle, restore on activity
 listener {
     timeout = 5
-    on-timeout = ~/.local/bin/window-idle-dim-terminal.sh
+    on-timeout = ~/.local/bin/window-idle-dim.sh
     on-resume = ~/.local/bin/window-idle-restore-terminal.sh
 }
