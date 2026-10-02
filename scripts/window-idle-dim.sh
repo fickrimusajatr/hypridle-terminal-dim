@@ -38,10 +38,8 @@ esac
 if [ "$should_dim" -eq 1 ]; then
     hyprctl eval "local w=hl.get_active_window() if w then hl.dispatch(hl.dsp.window.set_prop({prop=\"opacity\", value=$DIM_VALUE, window=w})) end" 2>/dev/null
 
-    if command -v swayosd-client &> /dev/null; then
-        swayosd-client \
-            --custom-message "$LABEL" \
-            --custom-icon "$ICON" \
-            --custom-progress "$(echo "scale=2; $DIM_PCT / 100" | bc)" 2>/dev/null
+    # Text-only notification
+    if command -v notify-send &> /dev/null; then
+        notify-send -t 1000 "$LABEL" -h string:x-dunst-stack-tag:hypridle-dim 2>/dev/null
     fi
 fi

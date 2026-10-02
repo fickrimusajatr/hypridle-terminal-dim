@@ -24,9 +24,6 @@ case "$NEXT" in
     global)   LABEL="Idle dim: GLOBAL" ;;
 esac
 
-if command -v swayosd-client &> /dev/null; then
-    swayosd-client \
-        --custom-message "$LABEL" \
-        --custom-icon "preferences-system-screensaver-symbolic" \
-        --custom-progress 1.0 2>/dev/null
+if command -v notify-send &> /dev/null; then
+    notify-send -t 1000 "$LABEL" -h string:x-dunst-stack-tag:hypridle-dim 2>/dev/null
 fi
